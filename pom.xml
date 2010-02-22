@@ -1,0 +1,290 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.mikeci</groupId>
+	<artifactId>jpetstore-maven</artifactId>
+	<packaging>war</packaging>
+	<version>1.0-SNAPSHOT</version>
+	<name>jpetstore-maven</name>
+	<url>http://maven.apache.org</url>
+
+	<properties>
+		<ibatisVersion>2.1.6</ibatisVersion>
+		<jdkVersion>1.6</jdkVersion>
+		<mvnVersion>2.2.1</mvnVersion>
+	</properties>
+
+	<ciManagement>
+		<system>mikeci</system>
+		<url>https://build.mikeci.com</url>
+	</ciManagement>
+
+	<build>
+		<pluginManagement>
+			<plugins>
+				<plugin>
+					<artifactId>maven-antrun-plugin</artifactId>
+					<version>1.3</version>
+				</plugin>
+				<plugin>
+					<artifactId>maven-assembly-plugin</artifactId>
+					<version>2.2-beta-2</version>
+				</plugin>
+				<plugin>
+					<artifactId>maven-clean-plugin</artifactId>
+					<version>2.2</version>
+				</plugin>
+				<plugin>
+					<artifactId>maven-compiler-plugin</artifactId>
+					<version>2.0.2</version>
+				</plugin>
+				<plugin>
+					<artifactId>maven-dependency-plugin</artifactId>
+					<version>2.0</version>
+				</plugin>
+				<plugin>
+					<artifactId>maven-deploy-plugin</artifactId>
+					<version>2.4</version>
+				</plugin>
+				<plugin>
+					<artifactId>maven-install-plugin</artifactId>
+					<version>2.2</version>
+				</plugin>
+				<plugin>
+					<artifactId>maven-jar-plugin</artifactId>
+					<version>2.2</version>
+				</plugin>
+				<plugin>
+					<artifactId>maven-javadoc-plugin</artifactId>
+					<version>2.5</version>
+				</plugin>
+				<plugin>
+					<artifactId>maven-plugin-plugin</artifactId>
+					<version>2.4.3</version>
+				</plugin>
+				<plugin>
+					<artifactId>maven-resources-plugin</artifactId>
+					<version>2.3</version>
+				</plugin>
+				<plugin>
+					<artifactId>maven-site-plugin</artifactId>
+					<version>2.0-beta-7</version>
+				</plugin>
+				<plugin>
+					<artifactId>maven-surefire-plugin</artifactId>
+					<version>2.4.3</version>
+				</plugin>
+				<plugin>
+					<artifactId>maven-war-plugin</artifactId>
+					<version>2.1-alpha-2</version>
+				</plugin>
+				<plugin>
+					<artifactId>maven-enforcer-plugin</artifactId>
+					<version>1.0-beta-1</version>
+				</plugin>
+				<plugin>
+					<artifactId>maven-project-info-reports-plugin</artifactId>
+					<version>2.1.2</version>
+				</plugin>
+			</plugins>
+		</pluginManagement>
+	</build>
+
+	<dependencies>
+
+		<!-- // Runtime scope dependencies -->
+		<dependency>
+		    <groupId>hsqldb</groupId>
+		    <artifactId>hsqldb</artifactId>
+		    <version>1.8.0.1</version>
+		    <scope>runtime</scope>
+		</dependency>
+		
+		<!-- // Test scope dependencies -->
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.4</version>
+			<scope>test</scope>
+		</dependency>
+		
+		<dependency>
+		    <groupId>jmock</groupId>
+		    <artifactId>jmock</artifactId>
+		    <version>1.0.1</version>
+			<scope>test</scope>
+		</dependency>
+		
+		<dependency>
+		    <groupId>jmock</groupId>
+		    <artifactId>jmock-cglib</artifactId>
+		    <version>1.0.1</version>
+		    <scope>test</scope>
+		</dependency>
+		
+		<dependency>
+			<groupId>cglib</groupId>
+			<artifactId>cglib-nodep</artifactId>
+			<version>2.1_3</version>
+			<scope>test</scope>
+		</dependency>
+		
+		<!-- // Provided scope dependencies -->
+		
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>servlet-api</artifactId>
+			<version>2.3</version>
+			<scope>provided</scope>
+		</dependency>
+
+		<!-- // Compile scope dependencies -->
+
+		<dependency>
+			<groupId>com.ibatis</groupId>
+			<artifactId>ibatis-common</artifactId>
+			<version>${ibatisVersion}</version>
+			<scope>compile</scope>
+		</dependency>
+		
+		<dependency>
+			<groupId>com.ibatis</groupId>
+			<artifactId>ibatis-dao</artifactId>
+			<version>${ibatisVersion}</version>
+			<scope>compile</scope>
+		</dependency>
+		
+		<dependency>
+			<groupId>com.ibatis</groupId>
+			<artifactId>ibatis-sqlmap</artifactId>
+			<version>${ibatisVersion}</version>
+			<scope>compile</scope>
+		</dependency>
+		
+		<dependency>
+			<groupId>com.ibatis</groupId>
+			<artifactId>ibatis-struts-beanaction</artifactId>
+			<version>${ibatisVersion}</version>
+			<scope>compile</scope>
+		</dependency>
+		
+		<dependency>
+		    <groupId>struts</groupId>
+		    <artifactId>struts</artifactId>
+		    <version>1.2.7</version>
+			<scope>compile</scope>
+		</dependency>
+		
+	</dependencies>
+
+	<reporting>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-javadoc-plugin</artifactId>
+				<version>2.6.1</version>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-report-plugin</artifactId>
+				<version>2.5</version>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-pmd-plugin</artifactId>
+				<version>2.3</version>
+				<configuration>
+					<linkXref>true</linkXref>
+					<sourceEncoding>utf-8</sourceEncoding>
+					<minimumTokens>100</minimumTokens>
+					<targetJdk>1.5</targetJdk>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-checkstyle-plugin</artifactId>
+				<version>2.4</version>
+			</plugin>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>cobertura-maven-plugin</artifactId>
+				<version>2.3</version>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-jxr-plugin</artifactId>
+				<version>2.1</version>
+			</plugin>
+		</plugins>
+	</reporting>
+
+
+	<profiles>
+		<profile>
+			<id>mikeci</id>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
+			<repositories>
+		        <repository>
+		          <id>mikeci-repo</id>
+		          <name>libs-releases</name>
+		          <url>http://mikeci.artifactoryonline.com/mikeci/libs-releases</url>
+		        </repository>
+        	</repositories>
+			<build>
+				<plugins>
+					<plugin>
+						<artifactId>maven-enforcer-plugin</artifactId>
+						<executions>
+							<execution>
+								<id>enforce-versions</id>
+								<goals>
+									<goal>enforce</goal>
+								</goals>
+								<configuration>
+									<rules>
+										<requireMavenVersion>
+											<version>${mvnVersion}</version>
+										</requireMavenVersion>
+										<requireJavaVersion>
+											<version>${jdkVersion}</version>
+										</requireJavaVersion>
+									</rules>
+								</configuration>
+							</execution>
+						</executions>
+					</plugin>
+					<plugin>
+						<artifactId>maven-compiler-plugin</artifactId>
+						<configuration>
+							<source>${jdkVersion}</source>
+							<target>${jdkVersion}</target>
+						</configuration>
+					</plugin>
+				</plugins>
+			</build>
+			<reporting>
+				<plugins>
+					<plugin>
+						<artifactId>maven-project-info-reports-plugin</artifactId>
+						<version>2.1.2</version>
+						<reportSets>
+							<reportSet>
+								<reports>
+									<report>project-team</report>
+									<report>mailing-list</report>
+									<report>cim</report>
+									<report>issue-tracking</report>
+									<report>license</report>
+									<report>scm</report>
+								</reports>
+							</reportSet>
+						</reportSets>
+					</plugin>
+				</plugins>
+			</reporting>
+		</profile>
+	</profiles>
+</project>
